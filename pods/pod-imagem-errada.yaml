@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vaidarruim
+  labels:
+    chave: novovalor
+spec:
+  containers:
+  - name: web
+    image: yabadabadoo
+    ports:
+      - containerPort: 8080
