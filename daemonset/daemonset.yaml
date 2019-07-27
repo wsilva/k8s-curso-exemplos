@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: pinger
+  labels:
+    name: pinger
+spec:
+  selector:
+    matchLabels:
+      name: pinger
+  template:
+    metadata:
+      labels:
+        name: pinger
+    spec:
+      containers:
+      - name: pinger
+        image: alpine
+        command: ["ping"]
+        args: ["uol.com.br"]
+        
