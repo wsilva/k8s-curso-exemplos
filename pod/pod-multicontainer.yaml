@@ -14,7 +14,7 @@ spec:
   containers:
     - image: wfsilva/phpfpm-demo:v1
       imagePullPolicy: Always
-      name: demo
+      name: php
       volumeMounts:
         - name: shared-files
           mountPath: /app

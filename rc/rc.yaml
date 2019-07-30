@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: demoapp
+  name: rc-demoapp
 spec:
   replicas: 3
   selector:

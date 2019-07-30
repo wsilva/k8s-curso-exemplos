@@ -1,22 +1,21 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 metadata:
-  name: deploy-demoapp
+  name: replicaset-demoapp
   labels:
     app: demoapp
+    tier: web 
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
-      app: demoapp
+      tier: web
   template:
     metadata:
       labels:
-        app: demoapp
+        tier: web
     spec:
       containers:
       - name: demoapp
-        image: wfsilva/demoapp:v2
-        ports:
-        - containerPort: 8080
+        image: wfsilva/demoapp:v1
 
