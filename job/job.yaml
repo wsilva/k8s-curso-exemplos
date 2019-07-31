@@ -1,16 +1,16 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: loadtest
+  name: job-pinger
 spec:
-  template:
-    spec:
-      containers:
-      - name: siege
-        image: wfsilva/siege:latest
-        command: ["siege"]
-        args: ["--concurrent=5","--benchmark","--time=2","http://demo:8080"]
-      restartPolicy: Never
   backoffLimit: 4
   completions: 2
   parallelism: 2
+  template:
+    spec:
+      containers:
+      - name: pinger
+        image: alpine
+        command: ["ping"]
+        args: ["-c","50","8.8.8.8"]
+      restartPolicy: OnFailure

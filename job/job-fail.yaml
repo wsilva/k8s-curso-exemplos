@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-fail
+spec:
+  template:
+    spec:
+      containers:
+      - name: fail
+        image: alpine
+        command: ["sh","-c","exit 7"]
+      restartPolicy: Never
+      
