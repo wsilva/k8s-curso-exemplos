@@ -13,9 +13,13 @@ spec:
       labels:
         name: pinger
     spec:
+      nodeSelector:
+        curso: k8s
       containers:
       - name: pinger
         image: alpine
-        command: ["ping"]
-        args: ["uol.com.br"]
+        command: 
+        - "ping"
+        args: 
+        - "8.8.8.8"
         

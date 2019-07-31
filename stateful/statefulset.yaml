@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: demoapp
+spec:
+  selector:
+    matchLabels:
+      app: demoapp 
+  serviceName: "demoapp"
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: demoapp 
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: demoapp
+        image: wfsilva/demoapp:v1
+        ports:
+        - containerPort: 8080
