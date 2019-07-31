@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: envvars-resources
+spec:
+  containers:
+  - name: demo
+    image: alpine
+    command: ["sleep","600"]
+    resources:
+      requests:
+        memory: "16M" # 1 Megabyte = 1.000.000 bytes 
+        cpu: "500m" # = 0.5 (AWS vCPU, GCP Core, Azure Core, Hyperthread)
+      limits:
+        memory: "32Mi" # 1 Mebibyte = 1.048.576 bytes 
+        cpu: "1.5" # = 1500m (AWS vCPU, GCP Core, Azure Core, Hyperthread)
+    env:
+    - name: CPUREQUEST
+      valueFrom:
+        resourceFieldRef:
+          containerName: demo
+          resource: requests.cpu
+    - name: CPULIMIT
+      valueFrom:
+        resourceFieldRef:
+          containerName: demo
+          resource: limits.cpu
+    - name: MEMREQUEST
+      valueFrom:
+        resourceFieldRef:
+          containerName: demo
+          resource: requests.memory
+    - name: MEMLIMIT
+      valueFrom:
+        resourceFieldRef:
+          containerName: demo
+          resource: limits.memory
