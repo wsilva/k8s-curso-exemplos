@@ -13,8 +13,6 @@ spec:
       labels:
         name: pinger
     spec:
-      nodeSelector:
-        curso: k8s
       containers:
       - name: pinger
         image: alpine
