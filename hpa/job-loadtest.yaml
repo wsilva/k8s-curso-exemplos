@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-loadtest
+spec:
+  backoffLimit: 4
+  completions: 2
+  parallelism: 2
+  template:
+    spec:
+      containers:
+      - name: siege
+        image: wfsilva/siege:latest
+        command: ["siege"]
+        args: ["--concurrent=5","--benchmark","--time=2","http://demo:8080"]
+      restartPolicy: OnFailure
