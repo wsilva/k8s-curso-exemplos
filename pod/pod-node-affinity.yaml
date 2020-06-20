@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodeaffinity
+  labels:
+    curso: k8s
+spec:
+  containers:
+  - name: demoapp
+    image: wfsilva/demoapp:v2
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/az-name
+            operator: In
+            values:
+            - spo-az1
+            - spo-az2
