@@ -1,12 +1,12 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: web
+  name: demoapp
 spec:
   maxReplicas: 15
   minReplicas: 2
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: web
-  targetCPUUtilizationPercentage: 15
+    name: demoapp
+  targetCPUUtilizationPercentage: 25

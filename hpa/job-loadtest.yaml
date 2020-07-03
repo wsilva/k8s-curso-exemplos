@@ -12,5 +12,5 @@ spec:
       - name: siege
         image: wfsilva/siege:latest
         command: ["siege"]
-        args: ["--concurrent=5","--benchmark","--time=2","http://demo:8080"]
+        args: ["--concurrent=1","--benchmark","--time=2","http://demoapp:8080"]
       restartPolicy: OnFailure
