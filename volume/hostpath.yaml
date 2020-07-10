@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-hostpath
+spec:
+  containers:
+  - name: container-a
+    image: busybox
+    command: ['sleep','3600']
+    volumeMounts:
+    - mountPath: /dados
+      name: vol-dados
+  volumes:
+  - name: vol-dados
+    hostPath:
+      path: /home/vagrant/
+      type: Directory

@@ -5,7 +5,7 @@ metadata:
     app: demoapp
   name: demoapp
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: demoapp
@@ -24,3 +24,19 @@ spec:
       - name: nfs-pv
         persistentVolumeClaim:
           claimName: nfs-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: demoapp
+  name: demoapp
+spec:
+  ports:
+  - nodePort: 30333
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: demoapp
+  type: NodePort
