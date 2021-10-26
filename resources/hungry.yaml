@@ -8,8 +8,8 @@ spec:
     image: wfsilva/demoapp:v2
     resources:
       requests:
-        memory: "64Mi"
-        cpu: "2000m"
+        memory: "64Gi"
+        cpu: "32"
       limits:
-        memory: "128Mi"
-        cpu: "4000m"
+        memory: "128Gi"
+        cpu: "64"
