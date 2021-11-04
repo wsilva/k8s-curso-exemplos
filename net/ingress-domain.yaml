@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-domain
+spec:
+  rules:
+  - host: "*.demo.app.br"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: demo1
+            port:
+              number: 8080
+  - host: "v2.demo.app"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: demo2
+            port:
+              number: 8080
+  - host: "v3.demo.app"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: demo3
+            port:
+              number: 8080
