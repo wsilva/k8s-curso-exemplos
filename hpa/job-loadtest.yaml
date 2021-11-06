@@ -4,7 +4,7 @@ metadata:
   name: job-loadtest
 spec:
   backoffLimit: 4
-  completions: 2
+  completions: 3
   parallelism: 2
   template:
     spec:
