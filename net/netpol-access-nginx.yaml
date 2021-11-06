@@ -12,6 +12,6 @@ spec:
       - podSelector:
           matchLabels:
             run: access
-      - namespaceSelector:
-        matchLabels:
-          kubernetes.io/metadata.name: default
+        namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: default
