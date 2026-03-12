@@ -1,15 +1,16 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: podzao
+  name: demo-oom
 spec:
   containers:
-  - name: podzao
-    image: wfsilva/demoapp:v1
+  - name: demo-oom
+    image: wfsilva/memalloc
+    args: ["512", "512"]
     resources:
       requests:
-        memory: "5Gi"
+        memory: "256Mi"
         cpu: "250m"
       limits:
-        memory: "5Gi"
+        memory: "256Mi"
         cpu: "500m"
